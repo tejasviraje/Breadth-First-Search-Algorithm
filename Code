@@ -1,0 +1,29 @@
+import sys
+
+graph={'A': ['B','C'],
+       'B':['A','D','E'],
+       'C':['A','F'],
+       'D':['B'],
+       'E':['B'],
+       'F':['C'],
+      }
+graph
+def bfs(graph,root):
+    visited = []
+    activelist = [root]
+    goal = 'F'
+    while activelist:
+        node = activelist.pop(0)
+        
+        if node == goal:
+            visited.append(node)
+            print('Found',visited)
+            sys.exit(0)
+        if node not in visited:
+            visited.append(node)
+            adjacents = graph[node]
+            for adjacent in adjacents:
+                activelist.append(adjacent)
+              #return visited
+bfs(graph,'A')            
+        
